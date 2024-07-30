@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include "../MyLibrary.h"
+#include <MyLibrary.h>
 
 int main(){
-    printf("Main init...\n");
+    printf("\nMain init...\n");
     myLibFunc();
 
     char* vector = NULL;
-    allocateArrPtr(&vector, 10, 'M');
+    allocateArrPtr(&vector, 10, 'L');
 
     printf("all Values alocated ptr vector: ");
     printf("[");
@@ -17,5 +17,6 @@ int main(){
             printf("%c", vector[i]);
         }
     }
-    printf("]\n");
+    printf("]\n\n");
+
 }

@@ -1,24 +1,18 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(CmakeTutorial
+project(App
     VERSION 1.0 
     DESCRIPTION "Very nice project"
     LANGUAGES C
-    )
-
-    
-add_library(MyLib STATIC 
-    MyLibrary.h 
-    MyLibrary.c
 )
 
-# Find all .c files in multiple directories
-file(GLOB_RECURSE SOURCES "src/*.c" "other_src/*.c")
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.c)
+file(GLOB_RECURSE HEADERS ${CMAKE_SOURCE_DIR}/include/*.h)
 
-# Find all .h files in multiple directories
-file(GLOB_RECURSE HEADERS "include/*.h" "other_include/*.h")
+#libraries
+add_subdirectory(libs)
 
-add_executable(${PROJECT_NAME}  ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries(${PROJECT_NAME} MyLib)
 
